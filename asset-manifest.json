@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ListaTareas-React/static/css/main.edb1a66e.chunk.css",
+    "main.js": "/ListaTareas-React/static/js/main.b59f502a.chunk.js",
+    "main.js.map": "/ListaTareas-React/static/js/main.b59f502a.chunk.js.map",
+    "runtime-main.js": "/ListaTareas-React/static/js/runtime-main.d7860450.js",
+    "runtime-main.js.map": "/ListaTareas-React/static/js/runtime-main.d7860450.js.map",
+    "static/js/2.3db1d736.chunk.js": "/ListaTareas-React/static/js/2.3db1d736.chunk.js",
+    "static/js/2.3db1d736.chunk.js.map": "/ListaTareas-React/static/js/2.3db1d736.chunk.js.map",
+    "index.html": "/ListaTareas-React/index.html",
+    "static/css/main.edb1a66e.chunk.css.map": "/ListaTareas-React/static/css/main.edb1a66e.chunk.css.map",
+    "static/js/2.3db1d736.chunk.js.LICENSE.txt": "/ListaTareas-React/static/js/2.3db1d736.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7860450.js",
+    "static/js/2.3db1d736.chunk.js",
+    "static/css/main.edb1a66e.chunk.css",
+    "static/js/main.b59f502a.chunk.js"
+  ]
+}
