@@ -1,17 +1,14 @@
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import AddTaskIcon from '@mui/icons-material/AddTask'
-import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import Typography from '@mui/material/Typography'
-import { List, ListItem, ListItemText, ListItemIcon, IconButton } from '@mui/material'
-import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import FormLabel from '@mui/material/FormLabel';
+import FormLabel from '@mui/material/FormLabel'
+import Lista from './Lista'
 
 const Formulario = () => {
 
-    const [secondary, setSecondary] = useState(true)
     const { handleSubmit, control, formState: { errors }, reset } = useForm()
     const [tareas, setTareas] = useState([])
 
@@ -21,10 +18,11 @@ const Formulario = () => {
         reset({descripcion: ''})
     }
 
-    const elimiarItem = (nombreTarea) => {
-        const nuevasTareas = tareas.filter(tarea => tarea.nombreTarea !== nombreTarea)
+    const eliminarItem = useCallback(nombreTarea => {
+        console.log(`Eliminando item ${nombreTarea}`)
+        const nuevasTareas = tareas.filter(tareaCiclo => tareaCiclo.nombreTarea !== nombreTarea)
         setTareas(nuevasTareas)
-    }
+    }, [tareas])
 
     return ( 
         <article className="m-auto w-full md:w-9/12 lg:w-7/12 ">
@@ -63,27 +61,8 @@ const Formulario = () => {
                 </div>
             </form>
 
-            <List>
-                {
-                    tareas.map((tarea, index) => {
-                        return(
-                            <ListItem key={index} secondaryAction={
-                                <IconButton onClick={() => elimiarItem(tarea.nombreTarea)}>
-                                  <HighlightOffIcon color="info"/>
-                                </IconButton>
-                              }>
-                                <ListItemIcon>
-                                    <AssignmentRoundedIcon color="info"/>
-                                </ListItemIcon>
-
-                                <ListItemText secondary={secondary ? `${tarea.descripcion}` : null}>
-                                    {tarea.nombreTarea}
-                                </ListItemText>
-                            </ListItem>
-                        )
-                    })
-                }
-            </List>
+            {tareas.length > 0 && <Lista tareas={tareas} setTareas={setTareas} handleEliminarItem={eliminarItem} />}
+            
         </article>
      )
 }
